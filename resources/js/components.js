@@ -1,7 +1,6 @@
 // dropdown menu desktop
 
 $("#user-menu-button").on("click", function () {
-    alert("rr");
     if ($(".dropdown-menu").first().is(":hidden")) {
         $(".dropdown-menu").slideDown("slow");
     } else {

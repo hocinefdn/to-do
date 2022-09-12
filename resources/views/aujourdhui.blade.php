@@ -13,7 +13,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-4 bg-white border-b border-gray-200">
                     @foreach ($tasks as $task)
-                        <x-task :title="$task->title" :description="$task->description" :dueDate="$task->dueDate" :done="$task->done" />
+                        <x-task :id="$task->id" :title="$task->title" :description="$task->description" :dueDate="$task->due_date"
+                            :done="$task->done" />
                     @endforeach
                 </div>
                 <hr>
@@ -23,15 +24,21 @@
                         <span class="items-center text-gray-500 hover:text-red-500">Ajouter une tâche</span>
                     </button>
                 </div>
-                <form id="form-add-task" method="POST"class="hidden p-6 w-2/3 ml-auto mr-auto">
+                <form id="form-add-task"
+                    method="POST"class="hidden p-6 w-2/3 ml-auto mr-auto border border-gray rounded-md" action="/task">
+                    @csrf
                     <div class="flex flex-col">
-                        <input type="text">
-                        <textarea name="decription" cols="30" rows="10"></textarea>
+                        <input type="text" name="title" placeholder="ex : Acheter un cadeau"
+                            class="rounded border-none focus:bg-gray-100 mb-1">
+                        <textarea name="description" cols="30" rows="2" placeholder="Description"
+                            class="rounded border-none focus:bg-gray-100"></textarea>
                     </div>
-                    <button class="flex flex-row p-1 rounded-md bg-red-500 text-white hover:bg-red-400">
-                        <span class="material-symbols-outlined">add</span>
-                        <span class="items-center">Ajouter une tâche</span>
-                    </button>
+                    <div class="p-3 flex justify-end">
+                        <button class="flex flex-row p-1 rounded-md bg-red-500 text-white pr-4 hover:bg-red-400">
+                            <span class="material-symbols-outlined">add</span>
+                            <span class="items-center">Ajouter une tâche</span>
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

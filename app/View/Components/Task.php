@@ -6,18 +6,21 @@ use Illuminate\View\Component;
 
 class Task extends Component
 {
+    public $id;
     public $title;
     public $description;
     public $dueDate;
     public $done;
+
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $description, $dueDate, $done)
+    public function __construct($id, $title, $description, $dueDate, $done)
     {
+        $this->id = $id;
         $this->title = $title;
         $this->description = $description;
         $this->dueDate = $dueDate;

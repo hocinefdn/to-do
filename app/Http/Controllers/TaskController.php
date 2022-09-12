@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
@@ -14,7 +15,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = DB::table('tasks')->where("due_date", "=", date("Y-m-d"))->get();
         return view('aujourdhui', compact('tasks'));
     }
 
@@ -25,7 +26,6 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -36,7 +36,13 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Task::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'due_date' => $request->due_date ? $request->due_date : date("Y-m-d"),
+            'done' => false
+        ]);
+        return redirect('/aujourd-hui');
     }
 
     /**
@@ -70,7 +76,9 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = DB::table('tasks')->where('id', $id)->get();
+        Task::where('id', $id)->update(['done' => !$task[0]->done]);
+        return redirect('/aujourd-hui');
     }
 
     /**
@@ -81,6 +89,7 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Task::where('id', $id)->delete();
+        return redirect('/aujourd-hui');
     }
 }

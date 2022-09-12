@@ -19,6 +19,9 @@ Route::get('/', function () {
 })->name("welcome");
 
 Route::get('/aujourd-hui', [TaskController::class, 'index'])->middleware(['auth'])->name('aujourd-hui');
+Route::resources([
+    'task' => TaskController::class
+]);
 
 Route::get('/prochainement', function () {
     return view('aujourdhui');
