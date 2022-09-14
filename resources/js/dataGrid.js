@@ -1,3 +1,4 @@
+var test;
 var dataSource = new kendo.data.DataSource({
     data: toDayTasks,
 
@@ -33,7 +34,6 @@ $("#tasks-grid").kendoGrid({
     // Enable the filtering functionality.
     filterable: true,
     // The columns configuration is an array of objects.
-
     columns: [
         // The field matches the ID property in the data array.
         { field: "done", title: "Fait", width: "30px" },
