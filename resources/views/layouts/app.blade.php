@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://kendo.cdn.telerik.com/2022.3.913/styles/kendo.default-main.min.css" rel="stylesheet" />
+
     <style>
         .material-symbols-outlined {
             font-variation-settings:
@@ -47,9 +49,11 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.913/js/kendo.all.min.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+    @yield('script')
 
-
-    <script src="{{ asset('js/components.js') }}"></script>
 </body>
 
 </html>

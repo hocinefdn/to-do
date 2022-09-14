@@ -11,13 +11,10 @@
     <div class="py-4">
         <div class="max-w-8xl mx-auto sm:px-6 lg:px-4">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-4 bg-white border-b border-gray-200">
-                    @foreach ($tasks as $task)
-                        <x-task :id="$task->id" :title="$task->title" :description="$task->description" :dueDate="$task->due_date"
-                            :done="$task->done" />
-                    @endforeach
-                </div>
+                <div id="filter"></div>
+                <div id="tasks-grid"></div>
                 <hr>
+                {{-- button to display adding form --}}
                 <div class="p-3 flex justify-end">
                     <button class="flex flex-row p-1 rounded-md" id="btn-add-task">
                         <span class="material-symbols-outlined text-red-500">add</span>
@@ -52,7 +49,14 @@
                     </div>
                 @endif
             </div>
+
             <div class="dialog-edit-task"></div>
         </div>
     </div>
+    @section('script')
+        <script>
+            let toDayTasks = @json($tasks)
+        </script>
+        <script src="{{ asset('js/dataGrid.js') }}"></script>
+    @endsection
 </x-app-layout>

@@ -32,8 +32,4 @@
         <button class="rounded-md h-2/3 hover:bg-gray-200" id="btn-menu-task">
             <span class="material-symbols-outlined">more_vert</span></button>
     </div>
-
-    {{-- {{ asset('js/components.js') }} --}}
-
-
 </div>
