@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
-    "/js/components.js": "/js/components.js",
+    "/js/script.js": "/js/script.js",
+    "/js/dataGrid.js": "/js/dataGrid.js",
     "/css/app.css": "/css/app.css"
 }
