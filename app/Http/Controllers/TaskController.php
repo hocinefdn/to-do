@@ -36,6 +36,7 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate(['title' => 'required|min:3|max:255']);
         Task::create([
             'title' => $request->title,
@@ -68,6 +69,7 @@ class TaskController extends Controller
         //
     }
 
+
     /**
      * Update the specified resource in storage.
      *
@@ -76,6 +78,22 @@ class TaskController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
+    {
+        dd('prob');
+        // $task = DB::table('tasks')->where('id', $id)->get();
+        // Task::where('id', $id)->update(['done' => !$task[0]->done]);
+        return redirect('/aujourd-hui');
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function done(Request $request, $id)
     {
         $task = DB::table('tasks')->where('id', $id)->get();
         Task::where('id', $id)->update(['done' => !$task[0]->done]);

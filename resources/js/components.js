@@ -31,3 +31,5 @@ $("#btn-add-task").on("click", function () {
         );
     }
 });
+
+$(".test").click({ param1: "Hello", param2: "World" }, cool_function);

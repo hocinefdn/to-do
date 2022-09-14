@@ -1,7 +1,7 @@
 <div class="flex justify-between p-1 m-1 cursor-pointer rounded-md hover:bg-gray-100">
     <div class="">
         <div class="flex flex-row items-center">
-            <form method="POST" action="{{ route('task.update', ['task' => $id]) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('task.done', ['task' => $id]) }}" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <button type="submit" class="flex flex-row items-center">
@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="flex justify-end">
-        <button class="rounded-md h-2/3 hover:bg-gray-200"><span
+        <button class="test rounded-md h-2/3 hover:bg-gray-200"><span
                 class="material-symbols-outlined text-green-500">edit_square</span></button>
         <form action="{{ route('task.destroy', ['task' => $id]) }}" method="POST" enctype="multipart/form-data">
             @method('DELETE')
@@ -32,5 +32,8 @@
         <button class="rounded-md h-2/3 hover:bg-gray-200" id="btn-menu-task">
             <span class="material-symbols-outlined">more_vert</span></button>
     </div>
+
+    {{-- {{ asset('js/components.js') }} --}}
+
 
 </div>

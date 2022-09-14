@@ -32,6 +32,7 @@
                             class="rounded border-none focus:bg-gray-100 mb-1">
                         <textarea name="description" cols="30" rows="2" placeholder="Description"
                             class="rounded border-none focus:bg-gray-100"></textarea>
+                        <input type="date" name="due_date">
                     </div>
                     <div class="p-3 flex justify-end">
                         <button class="flex flex-row p-1 rounded-md bg-red-500 text-white pr-4 hover:bg-red-400">
@@ -51,6 +52,7 @@
                     </div>
                 @endif
             </div>
+            <div class="dialog-edit-task"></div>
         </div>
     </div>
 </x-app-layout>

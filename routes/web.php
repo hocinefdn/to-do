@@ -22,7 +22,7 @@ Route::get('/aujourd-hui', [TaskController::class, 'index'])->middleware(['auth'
 Route::resources([
     'task' => TaskController::class
 ]);
-
+Route::put('/task/done/{task}', [TaskController::class, 'done'])->middleware(['auth'])->name('task.done');
 Route::get('/prochainement', function () {
     return view('aujourdhui');
 })->middleware(['auth'])->name('prochainement');
